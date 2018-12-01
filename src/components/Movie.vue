@@ -1,7 +1,7 @@
 <template>
-        <div>
+        <router-link :to="moviepath">
             <img :src="posterImage" :alt="movie.title">
-        </div>
+        </router-link>
 </template>
 
 <script>
@@ -13,6 +13,9 @@
         computed : {
             posterImage: function () {
                 return `${POSTER_PATH}/${this.movie.poster_path}`;
+            },
+            moviepath: function () {
+                return `/movie/${this.movie.id}`;
             }
         }
     }
